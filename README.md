@@ -438,3 +438,8 @@ Contributions are more than welcome! Please check out the [contributing guide](C
 ## License
 
 [MIT](LICENSE)
+
+Lola E.: lola-edy
+Julien V. : Aposstroff
+Yann P. : YannPPV
+Nathan L. : Boblamerguez
