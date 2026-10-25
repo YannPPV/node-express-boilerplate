@@ -38,8 +38,8 @@ app.use(mongoSanitize());
 app.use(compression());
 
 // enable cors
-app.use(cors());
-app.options('*', cors());
+app.use(cors({ origin: config.cors.origin }));
+app.options('*', cors({ origin: config.cors.origin }));
 
 // jwt authentication
 app.use(passport.initialize());
