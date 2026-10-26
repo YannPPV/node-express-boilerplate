@@ -14,7 +14,7 @@ async function runCmd(command) {
 
 async function hasYarn() {
   try {
-    await execSync('yarnpkg --version', { stdio: 'ignore' });
+    execSync('yarnpkg --version', { stdio: 'ignore' });
     return true;
   } catch {
     return false;
