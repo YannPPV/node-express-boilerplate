@@ -7,15 +7,9 @@ const { execSync } = require('child_process');
 // Utility functions
 const exec = util.promisify(require('child_process').exec);
 async function runCmd(command) {
-  try {
-    const { stdout, stderr } = await exec(command);
-    console.log(stdout);
-    console.log(stderr);
-  } catch {
-    (error) => {
-      console.log(error);
-    };
-  }
+  const { stdout, stderr } = await exec(command);
+  console.log(stdout);
+  console.log(stderr);
 }
 
 async function hasYarn() {
@@ -104,8 +98,12 @@ async function setup() {
     console.log('Enjoy your production-ready Node.js app, which already supports a large number of ready-made features!');
     console.log('Check README.md for more info.');
   } catch (error) {
-    console.log(error);
+    console.error(error.message);
+    process.exitCode = 1;
   }
 }
 
-setup();
+setup().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
